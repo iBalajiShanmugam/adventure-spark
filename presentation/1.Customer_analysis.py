@@ -5,6 +5,10 @@ customer_df = spark.read \
 
 # COMMAND ----------
 
+
+
+# COMMAND ----------
+
 # MAGIC %sql
 # MAGIC select count(customer_id) from adventure.customers
 
@@ -24,7 +28,7 @@ display(result_df)
 #Total customer based on ocuppation 
 
 result_df = customer_df \
-    .groupBy('occupation') \
+    .groupBy('occupation', 'gender') \
     .agg(count('customer_id').alias('total'))
 
 display(result_df)
@@ -43,18 +47,27 @@ display(result_df)
 
 # COMMAND ----------
 
-#Top 10 customer based on their orders
+# MAGIC %sql
+# MAGIC --Top 10 customer based on their orders
+# MAGIC
+# MAGIC select c.full_name, sum(s.order_quantity) as total_quantity
+# MAGIC from 
+# MAGIC     adventure.customers c
+# MAGIC left join 
+# MAGIC     adventure.sales s on s.customer_id = c.customer_id
+# MAGIC where c.full_name is not null
+# MAGIC group by c.full_name
+# MAGIC order by total_quantity desc
+# MAGIC limit 10
+# MAGIC
+# MAGIC
 
-%sql
-select 
-    *
-from 
-    customer c
-left join 
-    sales s on s.customer_id = c.customer_id
-grou
+# COMMAND ----------
 
-
+# MAGIC %sql
+# MAGIC select year(s.order_date) as year, count(distinct s.customer_id) as customer_count
+# MAGIC from adventure.sales s
+# MAGIC group by year(s.order_date)
 
 # COMMAND ----------
 

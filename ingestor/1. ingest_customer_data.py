@@ -27,7 +27,7 @@ customer_schema = StructType([
 # COMMAND ----------
 
 customer_df = spark.read.csv(
-   'dbfs:/FileStore/Adventure/AdventureWorks_Customers.csv',
+   'dbfs:/FileStore/adventure/AdventureWorks_Customers.csv',
     sep='|',
     schema = customer_schema,
     header=True

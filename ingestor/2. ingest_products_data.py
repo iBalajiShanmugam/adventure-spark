@@ -1,9 +1,4 @@
 # Databricks notebook source
-# MAGIC %fs
-# MAGIC ls /FileStore/Adventure
-
-# COMMAND ----------
-
 # MAGIC %md
 # MAGIC #### Cleaning and shaping Product table
 
@@ -29,7 +24,7 @@ product_schema = StructType([
 # COMMAND ----------
 
 product_df =  spark.read.csv(
-    'dbfs:/FileStore/Adventure/AdventureWorks_Products.csv',
+    'dbfs:/FileStore/adventure/AdventureWorks_Products.csv',
     sep=',',
     schema=product_schema,
     header=True
@@ -82,7 +77,7 @@ product_categories = spark.read \
     .option('header', True) \
     .option('sep', ',') \
     .schema(product_categories_schema) \
-    .load('dbfs:/FileStore/Adventure/AdventureWorks_Product_Categories.csv')
+    .load('dbfs:/FileStore/adventure/AdventureWorks_Product_Categories.csv')
 
 # COMMAND ----------
 
@@ -114,7 +109,7 @@ product_sub_category = spark.read \
     .format('csv') \
     .options(header=True, sep=',', inferSchema=True) \
     .schema(product_sub_category_schema) \
-    .load('dbfs:/FileStore/Adventure/AdventureWorks_Product_Subcategories.csv')
+    .load('dbfs:/FileStore/adventure/AdventureWorks_Product_Subcategories.csv')
 
 # COMMAND ----------
 

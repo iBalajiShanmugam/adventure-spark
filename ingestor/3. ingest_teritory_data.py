@@ -1,9 +1,4 @@
 # Databricks notebook source
-# MAGIC %fs
-# MAGIC ls /FileStore/Adventure/
-
-# COMMAND ----------
-
 from pyspark.sql.types import StringType,IntegerType, StructType, StructField
 
 territories_df_schema =  StructType([
@@ -20,7 +15,7 @@ territories_df = spark.read \
     .format('csv') \
     .options(header=True, inferSchmema=True, sep='\t') \
     .schema(territories_df_schema) \
-    .load('dbfs:/FileStore/Adventure/AdventureWorks_Territories.csv')
+    .load('dbfs:/FileStore/adventure/AdventureWorks_Territories.csv')
 
     
 

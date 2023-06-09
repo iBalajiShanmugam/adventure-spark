@@ -1,9 +1,4 @@
 # Databricks notebook source
-# MAGIC %fs
-# MAGIC ls /FileStore/Adventure/
-
-# COMMAND ----------
-
 from pyspark.sql.types import StructType, StructField, DateType, StringType, IntegerType
 sales_schema = StructType([
      StructField('OrderDate', StringType()),
@@ -19,7 +14,7 @@ sales_schema = StructType([
 # COMMAND ----------
 
 sales_df = spark.read \
-    .csv('dbfs:/FileStore/Adventure/sales/', header=True, schema=sales_schema, sep=',')
+    .csv('dbfs:/FileStore/adventure/sales/', header=True, schema=sales_schema, sep=',')
 
 # COMMAND ----------
 
@@ -27,7 +22,7 @@ display(sales_df)
 
 # COMMAND ----------
 
-from pyspark.sql.functions import col, to_date
+from pyspark.sql.functions import col, to_date, year
 final_df = sales_df \
     .withColumnRenamed('OrderDate', 'order_date') \
     .withColumnRenamed('StockDate', 'stock_date') \

@@ -18,7 +18,7 @@ returns_df = spark.read \
     .format('json') \
     .option('multiLine', True) \
     .schema(returns_schema) \
-    .load('dbfs:/FileStore/Adventure/Adventure_returns.json')
+    .load('dbfs:/FileStore/adventure/AdventureWorks_Returns.json')
 
 # COMMAND ----------
 
@@ -34,6 +34,7 @@ final_df = returns_df \
 # COMMAND ----------
 
 final_df.write \
+    .mode('overwrite') \
     .format('delta') \
     .partitionBy('year') \
     .saveAsTable('adventure.returns')
