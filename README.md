@@ -14,11 +14,11 @@ The Adventure Works dataset is a sample dataset provided by Microsoft, represent
 
 ## Data Ingestion
 
-The data ingestion process involves loading the Adventure Works dataset into your Databricks environment. The repository provides notebooks and scripts to ingest data from various sources, such as CSV files, databases, or external APIs. You can find the relevant code and instructions in the [ingestor](data-ingestion) directory.
+The data ingestion process involves loading the Adventure Works dataset into your Databricks environment. The repository provides notebooks and scripts to ingest data from various sources, such as CSV files, databases, or external APIs. You can find the relevant code and instructions in the [data-ingestion](ingestor) directory.
 
 ## Data Processing
 
-Once the data is ingested, the next step is to process and transform it for analysis. The data processing notebooks and scripts in the [presentation](data-processing) directory demonstrate how to clean, transform, and aggregate the Adventure Works dataset using PySpark and Delta Lake.
+Once the data is ingested, the next step is to process and transform it for analysis. The data processing notebooks and scripts in the [data-processing](presentation) directory demonstrate how to clean, transform, and aggregate the Adventure Works dataset using PySpark and Delta Lake.
 
 ## Data Analysis
 
