@@ -22,7 +22,7 @@ Once the data is ingested, the next step is to process and transform it for anal
 
 ## Data Analysis
 
-With the data ingested and processed, you can perform various data analysis tasks on the Adventure Works dataset. The [dashboard](data-analysis) directory contains notebooks that explore customer behavior, product performance, sales trends, and return patterns, providing valuable insights for business decision-making.
+With the data ingested and processed, you can perform various data analysis tasks on the Adventure Works dataset. The [data-analysis][dashboard] directory contains notebooks that explore customer behavior, product performance, sales trends, and return patterns, providing valuable insights for business decision-making.
 
 ![Customer Analysis](dashboard/customer_dashboard.png)
 
